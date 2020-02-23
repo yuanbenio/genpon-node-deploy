@@ -36,11 +36,22 @@ pull:
   cmds:
     - sudo docker pull registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-chain:latest
 
+init_node:
+  desc: init node
+  cmds:
+    - docker run -v `pwd`/kdata:/kdata registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-chain:latest init
+    - cp genesis.json kdata/config
+    - cp config.toml kdata/config
+
 show_public_key:
   desc: show node's public key
   cmds:
     - docker run -v `pwd`/kdata:/kdata registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-chain:latest show_public_key
 
+show_node_id:
+  desc: show node's id
+  cmds:
+    - docker run -v `pwd`/kdata:/kdata registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-chain:latest show_node_id
 rm_none:
   desc: remove none images
   cmds:

@@ -95,10 +95,10 @@ laddr = "tcp://0.0.0.0:26656"
 external_address = ""
 
 # Comma separated list of seed nodes to connect to
-seeds = "fa3a9a31f6ec99dbd44b87020b4fe8954ba5a338@{seed peer ip}:26656"
+seeds = "{seed peer's nodeID}@{seed peer's ip}:26656"
 
 # Comma separated list of nodes to keep persistent connections to
-persistent_peers = "fa3a9a31f6ec99dbd44b87020b4fe8954ba5a338@{persistent peer ip}:26656"
+persistent_peers = "{seed peer's nodeID}@{persistent peer's ip}:26656"
 
 # UPNP port forwarding
 upnp = false
@@ -172,8 +172,8 @@ timeout_commit = 1000
 skip_timeout_commit = false
 
 # EmptyBlocks mode and possible interval between empty blocks in seconds
-create_empty_blocks = true
-create_empty_blocks_interval = 60
+create_empty_blocks = false
+create_empty_blocks_interval = 0
 
 # Reactor sleep duration parameters are in milliseconds
 peer_gossip_sleep_duration = 100
