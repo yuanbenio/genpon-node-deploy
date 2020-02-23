@@ -1,0 +1,37 @@
+# Consensus Layer URL
+abci: http://kchain:26657
+# data path
+home_path: /kdata
+# config files path
+config: /kdata/config
+# node private key path
+priv_validator: /kdata/config/priv_validator.json
+debug: true
+# Acceleration Layer API Address
+bind_addr: 0.0.0.0
+# Acceleration Layer API Port
+bind_port: 9001
+# DEBUG INFO WARN ERROR
+log_level: INFO
+# DB URL
+redis: redis://:{password}@pika:9221/0
+# cache path on disk
+dna_cache_path: dnaData
+# master node public
+master_pubkeys: 1624de6420d4fd4e54aca687ad45b906d8c947147772ed595ee5b4761946d446c9a33fbe95
+# seed node's ID
+seeds: 774E777AB409988ACD92BED89340A951E7567E55={seed node ip}
+# sync old data
+bak_history: true
+# DB max idle
+max_idle: 300
+# DB active idle
+max_active: 2000
+# node external url
+# node_ip == IPV4 address
+# please replace it when node have domain
+external_uri: http://{node_ip}:9001
+# only for save metadata API
+is_auth_filter: true
+# save metadata with access_token (as if is_auth_filter is true)
+access_token: {access_token}

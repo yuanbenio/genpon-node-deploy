@@ -1,0 +1,43 @@
+{
+  "genesis_time": "2020-01-30T06:05:39.186206544Z",
+  "chain_id": "genpon-chain",
+  "consensus_params": {
+    "block_size_params": {
+      "max_bytes": "22020096",
+      "max_gas": "-1"
+    },
+    "evidence_params": {
+      "max_age": "100000"
+    }
+  },
+  "validators": [
+    {
+      "address": "774E777AB409988ACD92BED89340A951E7567E55",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "1P1OVKymh61FuQbYyUcUd3LtWV7ltHYZRtRGyaM/vpU="
+      },
+      "power": "10",
+      "name": "genpon"
+    },
+    {
+      "address": "4E2B3394F70ED844803EE6CADB8885BF700D984F",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "YgClZZtXfVmlsu0H3C4sNmUGJ+DKXs78hBB+ejSHaVw="
+      },
+      "power": "9",
+      "name": "united"
+    },
+    {
+      "address": "D009F331244A318A361267DF6CDA40359896DB05",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "lEvrNUV5QWnHraI7IIYZ85enlmHvKk7uEsywpndqmwY="
+      },
+      "power": "9",
+      "name": "hakuhodo"
+    }
+  ],
+  "app_hash": ""
+}

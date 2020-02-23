@@ -1,0 +1,47 @@
+default:
+  desc: help
+  cmds:
+    - task -l
+
+kchain:
+  desc: start kchain
+  cmds:
+    - docker run -dit --restart=always --name=kchain --network genpon-chain-net --log-driver=json-file --log-opt max-size=20m --log-opt max-file=10 -p 26656:26656 -p 26657:26657 -v `pwd`/kdata:/kdata registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-chain:latest
+    - docker logs -f kchain
+
+kchain_restart:
+  desc: restart kchain
+  cmds:
+    - docker stop kchain
+    - docker rm -f kchain
+    - task kchain
+
+pika:
+  desc: start pika DB
+  cmds:
+    - docker run -d --restart=always --name pika --network genpon-chain-net -v `pwd`/kdata/pika:/data -p 9221:9221 --log-driver=json-file --log-opt max-size=20m --log-opt max-file=50 registry.cn-hangzhou.aliyuncs.com/yuanben/pika:v3.0.7
+
+init_network:
+  desc: init network
+  cmds:
+    - docker network create genpon-chain-net
+
+login:
+  desc: login
+  cmds:
+    - docker login --username genpon@yuanben --password ny87HFvd2nXH registry.cn-hangzhou.aliyuncs.com
+
+pull:
+  desc: pull chain image
+  cmds:
+    - sudo docker pull registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-chain:latest
+
+show_public_key:
+  desc: show node's public key
+  cmds:
+    - docker run -v `pwd`/kdata:/kdata registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-chain:latest show_public_key
+
+rm_none:
+  desc: remove none images
+  cmds:
+    - sudo docker images | grep none | awk '{print $3}' | xargs docker rmi -f

@@ -1,0 +1,40 @@
+services:
+  knode:
+    image: registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-knode:latest
+    restart: always
+    ports:
+      - '9001:9001'
+    volumes:
+      - './kdata:/kdata'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "100"
+  chain:
+    image: registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-knode:latest
+    command: chain
+    restart: always
+    volumes:
+      - './kdata:/kdata'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "10"
+  kworker:
+    image: registry.cn-hangzhou.aliyuncs.com/yuanben/genpon-knode:latest
+    command: worker
+    restart: always
+    volumes:
+      - './kdata:/kdata'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "100"
+networks:
+  default:
+    external:
+      name: genpon-chain-net
+version: '2'
